@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapt8_指令书中代码 Directive</title>
+</head>
+<body ng-app="myApp">
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script type="text/javascript">
+        angular.module('myApp', []).directive('myDirective', function () {
+            return {
+                restrict: 'AE',
+                replace: true,
+                scope: {
+                    myUrl: '@',
+                    myLinkText: '@'
+                },
+                template: '<a href="{{myUrl}}">{{myLinkText}}</a>'
+            };
+        });
+
+    </script>
+
+
+    <div my-directive
+         my-url="http://baidu.com"
+         my-link-text="Donald"></div>
+</body>
+</html>

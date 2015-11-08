@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>第八章  指令 Directive</title>
+</head>
+<body ng-app="appDirective">
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="App/appDirective.js"></script>
+    <div>
+        <my-directive></my-directive>
+
+    </div>
+    <br />
+    <div my-directive-Sample
+         some-attr="http://baidu.com"
+         my-link-text="百度欢迎你！">
+    </div>
+    <br />
+    <!--theirUrl 只是一个值，怎么会触发联动呢？-->
+    <label>Their URL field:</label>
+    <input type="text" ng-model="theirUrl" />
+    <div my-Directive-Twowaybinding
+         some-attr="theirUrl"
+         my-link-text="点我，带你去百度....">
+
+    </div>
+</body>
+</html>
