@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapt9_内置指令 Directive</title>
+</head>
+<body>
+    <div ng-app="appChapter9">
+        <div>
+            ng-disabled:
+            当Text中有输入时，按钮可用
+            someProperty222 不为空时，禁用按钮
+            <br />
+            <input type="text" ng-model="someProperty222" placeholder="TypetoEnable" />
+            <button ng-model="button" ng-disabled="!someProperty222">AButton</button>
+
+            <br />
+            <br />
+            <br />
+            ng-disabled:
+            Txtarea被禁用5秒
+            <br />
+            <textarea ng-disabled="isDisabled" />wait 5 seconds</textarea>
+
+        </div>
+        <br />
+        <br />
+        ng-readonly:在下面个文本框输入，下下面个文本框变成只读
+        浏览器只检测标签是否包含readonly属性，不管是true false
+        <br />
+        <input type="text" ng-model="someProperty"><br />
+        <input type="text"
+               ng-readonly="someProperty"
+               value="Some text here" />
+        <br />
+        <br />
+        <br />
+        ng-checked:
+        <br />
+        <label>someProperty={{someProperty}}</label><br />
+        <input type="checkbox"
+               ng-checked="someProperty"
+               ng-init="someProperty=true"
+               ng-model="someProperty" />
+        <br />
+        <label>someProperty={{anotherProperty}}</label><br />
+        <input type="checkbox"
+               ng-checked="anotherProperty"
+               ng-init="anotherProperty=false"
+               ng-model="anotherProperty" />
+        <br />
+        <br />
+        ng-selected:
+        选中checkbox修改select选择项
+        ng-selected 可以对是否出现option标签的selected属性进行绑定
+        <br />
+        <label>Select Two Fish:</label><br />
+        <input type="checkbox"
+               ng-model="isTwoFish" />
+        <br />
+        <select>
+            <option>One Fish</option>
+            <option ng-selected="isTwoFish">Two Fish</option>
+        </select>
+        <br />
+        <br />
+        9.1.2 类布尔属性
+        <br />
+        <a ng-href="{{myHref}}">5秒后a再添加Href</a>
+        <a href="{{myHref}}">用户单击之前，href不会加载返回404</a>
+        <br />
+        <h1>AngularJS 会告诉浏览器在ng-src 对应的表达式生效之前不要加载图像</h1>
+
+        <h3>5秒后img再添加src</h3>
+        <h3>错误方式,F12查看请求，有个红色的</h3>
+        <img src="{{imgSrc}}" />
+        <h3>正确方式</h3>
+        <img ng-src="{{imgSrc}}" />
+
+        <br />
+        <br />
+        <h3>在指令中使用子作用域</h3>
+        {{rootProperty}}
+        <button ng-click="someAction()">触发子作用域</button>
+        <br />
+
+
+    </div>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="App/appChapter9.js"></script>
+</body>
+</html>
