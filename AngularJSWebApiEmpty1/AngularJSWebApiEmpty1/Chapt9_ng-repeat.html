@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapt9 ng-repeat {{}} ng-bind ng-cloak ng-bind-template ng-model ng-show/ng-hide  ng-change</title>
+
+    <style type="text/css">
+        .even {
+            background-color: blue;
+        }
+
+        .odd {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div ng-app="appRepeatAndSoOn">
+        <div title="ng-repeat">
+            <hr />
+            <h3 style="color:purple">ng-repeat</h3>
+            <ul ng-controller="peopleController">
+                <li ng-repeat="person in people" ng-class="{even:!$even,odd:!$odd}">
+                    NO{{$index+1}} ：{{person.name}} 生活在 {{person.city}}
+                    【$first={{$first}}】
+                    【$middle={{$middle}}】
+                    【$last={{$last}}】
+                    【$even={{$even}}】
+                    【$odd={{$odd}}】
+                </li>
+            </ul>
+            <p>
+                $.index:遍历的进度(0...length-1)
+                <br />
+                $first:当元素遍历的第一个时值为true
+                <br />
+                $middle:当元素处于第一个和最后元素之间时值为true
+                <br />
+                $last:当元素是遍历的最后一个时值为true
+                <br />
+                $even:当$index值是偶数时值为true
+                <br />
+                $odd:当$index值是奇数时值为true
+            </p>
+            <hr />
+        </div>
+        <div title="ng-init">
+            <hr />
+            <h3 style="color:purple">ng-init</h3>
+            <div ng-init="person.name='jarvis';person.city='阜阳'">
+                ng-init {{person.name}} 生活在 {{person.city}}
+            </div>
+            <p>
+                ng-init 指令用来在指令EE被调用时设置内部作用域的初始态
+            </p>
+            <hr />
+        </div>
+        <div title="{{}}">
+            <hr />
+            <h3 style="color:purple">{ {} }与 ng-bind</h3>
+            <div ng-init="personB.name='jarvis';personB.city='阜阳'">
+                { {} }: {{+peson.name}} 生活在 {{person.city}}
+                <br />
+                <div ng-bind="'ng-bind:'+personB.name+'生活在'+personB.city"></div>
+            </div>
+            <p>
+                { {}} 是AngulaJS内置的模板语法，它会在内部$scope和试图之间创建绑定。基于这个banging，只要$scope发生变化，试图就会随之自动更行
+
+            </p>
+            <p>实际上是ng-bind的简略形式用这种形式不需要创建新的元素，因此他常被用在行内文本中</p>
+            <p>{ {}}会导致页面加载时未渲染的元素发生闪烁，例如出现{ {}} 符号，ng-bind命令就可以解决该问题</p>
+            <hr />
+            <h3>ng-cloak</h3>
+            <h3>除使用ng-bind 来避免未渲染元素闪烁，还可以在含有{ {} }的元素上使用ng-cloak指令： </h3>
+            <div ng-init="cloak='HelloWorld'">
+                <p ng-cloak> {{cloak}}</p>
+            </div>
+            <hr />
+            <hr />
+        </div>
+
+        <div title="ng-bind-template">
+            <h3>同ng-bind指令类似，ng-bind-template用来在试图中绑定多个表达式</h3>
+            <div ng-init="message='巴黎恐怖袭击';name='ISIS'"
+                 ng-bind-template="{{message}}{{name}}">
+
+            </div>
+            <hr />
+        </div>
+        <div title="ng-model">
+            <h3>
+                ng-model指令用来将input、select、text、area或自定义表单控件同包含他们的作用域中的属性进行绑定。
+                它可以提供并处理表单验证功能，在元素上设置相关的css类(ng-valid ng-invalid等)，并负责在父表单中注册控件
+            </h3>
+            <div ng-init="model.someProperty='属性'">
+                <input type="text" ng-model="model.someProperty" />
+            </div>
+            <hr />
+        </div>
+        <div title="ng-show ng-hide">
+            <h3>
+                ng-show 和ng-hide 根据所给表达式的值来显示或隐藏HTML元素。当赋值给ng-show 指令的值为false时元素会被隐藏。类似地，当赋值给ng-hide值得指为true时元素也会被隐藏
+            </h3>
+            <h3>
+                ng-show="2+2==5"
+            </h3>
+            <div ng-show="2+2==5">
+                2+2==5
+            </div>
+            <h3>
+                ng-show="2+2==4"
+            </h3>
+            <div ng-show="2+2==4">
+                2+2==4
+            </div>
+            <h3>
+                ng-hide="2+2==5"
+            </h3>
+            <div ng-hide="2+2==5">
+                2+2==5
+            </div>
+            <h3>
+                ng-hide="2+2==4"
+            </h3>
+            <div ng-hide="2+2==4">
+                2+2==5
+            </div>
+            <hr />
+        </div>
+
+
+        <div title="ng-change">
+            <h3>
+                ng-change这个指令会在表单输入发生变化是计算给定表达式值。因为要处理表单输入，这个指令要和ngModel一起使用。
+            </h3>
+            <div ng-controller="equationControlleer">
+                <input type="text"
+                       ng-model="equation.x"
+                       ng-change="change()" />
+                <p>{{equation.output}}</p>
+            </div>
+            <hr />
+        </div>
+
+    </div>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="App/appRepeatAndSoOn.js"></script>
+</body>
+</html>

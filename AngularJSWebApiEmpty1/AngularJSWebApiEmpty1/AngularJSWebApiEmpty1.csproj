@@ -75,14 +75,25 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\appDirectiveMore.js" />
+    <Content Include="App\appRepeatAndSoOn.js" />
+    <Content Include="App\appSwitch.js" />
+    <Content Include="App\appInclude.js" />
+    <Content Include="App\appController.js" />
     <Content Include="App\appChapter9.js" />
     <Content Include="App\appDirective.js" />
     <Content Include="App\app.js" />
+    <Content Include="Chapt9_ng-repeat.html" />
+    <Content Include="Chapt9_ng-switch.html" />
+    <Content Include="Chapt9_ng-Include.html" />
+    <Content Include="Chapt9_ng-controller.html" />
+    <Content Include="Chapt10_指令详解.html" />
     <Content Include="Chapt9_内置指令.html" />
     <Content Include="Chapt8_指令书中代码.html" />
     <Content Include="Chapt8_指令.html" />
     <Content Include="Global.asax" />
     <Content Include="Chapt2_3_控制器与模块声明与参数注入.html" />
+    <Content Include="myTemplate.html" />
     <Content Include="index.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />

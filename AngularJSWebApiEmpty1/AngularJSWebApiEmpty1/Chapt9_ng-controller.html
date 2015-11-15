@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapt9 ng-controller</title>
+</head>
+<body>
+    <div ng-app="appController">
+        <h3 style="color:purple;">JavaScript对象要么值赋值要么是引用复制。字符串、数字、布尔型变量是值赋值。数组、对象和函数则是引用复制</h3>
+        <h3 style="color:purple;">ng-include ng-switch ng-repeat ng-view ng-controller ng-if 这些指令都有该特性</h3>
+
+        <h2 style="color:purple;">值复制</h2style="color:purple;">
+        <h3>someBareValue 是用ParentController中变量，当父作用域更新时子作用域也会更新，但子作用域更新，父作用域不更新</h3>
+        <div ng-controller="parentController">
+
+            <button ng-click="parentAction()">更新子作用域中的值</button>
+            父作用域： {{someBareValue}}
+            <div ng-controller="childController">
+
+                <button ng-click="childAction()">更新父作用域中的值</button>
+                子作用域：   {{someBareValue}}
+            </div>
+        </div>
+        <h2 style="color:purple;">引用复制</h2>
+        <h3>子作用域的更新会应用到父作用域</h3>
+        <div ng-controller="parentRefController">
+
+            <button ng-click="parentAction()">更新父域中的值</button>
+            父作用域： {{someModel.someBareValue}}
+
+            <div ng-controller="childRefController">
+                <button ng-click="childAction()">更新子域中的值</button>
+                子作用域：   {{someModel.someBareValue}}
+            </div>
+        </div>
+
+    </div>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="App/appController.js"></script>
+</body>
+</html>

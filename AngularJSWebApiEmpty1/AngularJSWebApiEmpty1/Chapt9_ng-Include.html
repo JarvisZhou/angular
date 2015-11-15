@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapt9 ng-include</title>
+</head>
+<body>
+    <div ng-app="appInclude">
+        <h3 style="color:purple;">ng-include 可以加载编译并包含外部HTML片段到当前的应用中。模板的Url被限制在于应用文档相同的域和协议下，可以通过白名单或包装成被信任的值来突破限制。</h3>
+        <h3 style="color:purple;">所有浏览器都不能进行跨域的请求可以通过命令：chrome --allow-file-access-from-files来禁止CORS错误（仅适合紧急情况）</h3>
+        <div ng-include="'myTemplate.html'"
+             ng-controller="templateController"
+             ng-init="name='世界'">
+            Hello,{{name}}
+        </div>
+        <hr />
+        <div>
+            使用ng-include时 angularJS会自动创建一个子作用域。如果你像使用某个特定的作用域，例如templateController的作用域，必须在同一个DOM元素上添加ng-controller='templateController'指令，
+            。这样当模板加载完成后，不会像往常一样从外部作用域继承并创建一个新的子作用域。
+        </div>
+    </div>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="App/appInclude.js"></script>
+</body>
+</html>

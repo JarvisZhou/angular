@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapt9 ng-switch.ng-if</title>
+</head>
+<body>
+    <div ng-app="appSwitch">
+        <h3 style="color:purple;">这个指令和ng-switch-when及on="propertyName"一起使用，可以在propertyName发生变化时渲染不同指令到试图中</h3>
+        <h3 style="color:purple;"></h3>
+        <input type="text" ng-model="person.name" />
+        <div ng-switch on="person.name">
+            <p ng-switch-default> 冠军是 </p>
+            <h1 ng-switch-when="air">{{person.name}}</h1>
+            <h1 ng-switch-when="car">{{person.name}}</h1>
+            <h1 ng-switch-when="boat">{{person.name}}</h1>
+        </div>
+        <hr />
+        <div>
+            使用ng-include时 angularJS会自动创建一个子作用域。如果你像使用某个特定的作用域，例如templateController的作用域，必须在同一个DOM元素上添加ng-controller='templateController'指令，
+            。这样当模板加载完成后，不会像往常一样从外部作用域继承并创建一个新的子作用域。
+        </div>
+        <hr />
+        <hr />
+        <h3 style="color:purple;">ng-if会根据表达式值在DOM中生成或移除一个元素。如果ng-if表达式值false，对应的元素将会从DOM中移除</h3>
+        <h3 style="color:cadetblue"> ng-if 与ng-show ng-hide本质区别是，前者是真正移除一个，后者会通过css隐藏了</h3>
+        <hr />
+
+        <div ng-if="!model.show">
+            请输入yes
+        </div>
+        <input type="text" ng-model="model.show" />
+        
+        <div ng-if="2+2===5">
+            我们将看到这个Div节点，不会被移除
+        </div>
+        <div ng-if="model.show=='yes'">
+            谢谢你拯救了我！
+        </div>
+        <hr />
+        <div style="color:red;">
+            当元素被ng-if从DOM中移除，同它关联的的作用域也会被销毁。而且当它重新加入DOM中时，会通过原型继承从它的父作用域生成一个新的作用
+
+            例如：ng-if=true时，jQuery给元素添加了.addClass样式，当ng-if=false时，DOM从新绘制元素，无.addClass样式（重新创建的元素hi编译后的状态）
+
+        </div>
+
+    </div>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="App/appSwitch.js"></script>
+</body>
+</html>
