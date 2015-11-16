@@ -61,7 +61,17 @@
             template: "Inside myDirective,isolate scope:{{myProperty}}",
             scope: true
         };
-    })
-    ;
+    });
+
+    app.directive("scopeExample", function () {
+        return {
+            restrict: 'A',
+            scope: {
+                ngmodel: '=',
+                onSend: '&',
+                fromName: '@'
+            }
+        };
+    });
 
 })();

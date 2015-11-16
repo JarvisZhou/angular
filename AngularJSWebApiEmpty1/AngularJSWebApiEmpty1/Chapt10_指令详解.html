@@ -44,6 +44,22 @@
 
         </div>
 
+        <div title="绑定策略">
+            <h3 style="color:purple;">绑定策略</h3>
+            <h4 style="color:purple;">AngularJS提供集中放能够将指令内部的作用域，同指令外部的作用域进行数据绑定</h4>
+            <h4 style="color:purple;">@ 或 @attr 将本地作用域同DOM属性的值进行绑定。指令内部作用域可以使用外部作用域的变量</h4>
+            <h4 style="color:purple;">= 或=attr  双向绑定，通过=可以将本地作用遇上的属性同父级作用域上属性进行双向的数据绑定。就像普通的数据绑定一样，本地属性会反应出父数据模型中发生的改变。</h4>
+            <h4 style="color:purple;">& 或 &attr 父级作用域绑定通过&符可以对父级作用域进行绑定，以便在其中运行函数。意味着对这个值进行设置时会生成一个指向父级做哟关于的包装函数。</h4>
+            <div>
+                <input type="text" ng-model="to" />
+                <!--调用指令-->
+                <div scope-example ng-model="to"
+                     on-send="sendMail(email)"
+                     from-name="ari@fullstack.io">
+                </div>
+            </div>
+            <hr />
+        </div>
     </div>
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-animate.js"></script>
